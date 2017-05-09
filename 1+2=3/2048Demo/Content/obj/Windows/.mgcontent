@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/bg1.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/bg2.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_0.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_1.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_2.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_3.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_6.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_12.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_24.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_48.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_96.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_192.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_384.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_768.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_1536.png</File>
+    <File>C:/Users/cube2166/Documents/Visual Studio 2015/Projects/1+2=3/2048Demo/Content/block_3072.png</File>
+  </SourceFiles>
+</SourceFileCollection>
