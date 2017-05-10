@@ -10,20 +10,20 @@ namespace _2048Demo
     /// </summary>
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        List<Texture2D> TextureList;
+        private GraphicsDeviceManager _c_Graphics;
+        private SpriteBatch _c_SpriteBatch;
+        private List<Texture2D> _l_TextureList;
 
-        public const int window_Height = 800;
-        public const int window_Width = 800;
-        Board myboard;
+        public const int p_WindowHeight = 800;
+        public const int p_WindowWidth = 800;
+        private Board _c_MyBoard;
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
+            _c_Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferWidth = window_Width;
-            graphics.PreferredBackBufferHeight = window_Height;
+            _c_Graphics.PreferredBackBufferWidth = p_WindowWidth;
+            _c_Graphics.PreferredBackBufferHeight = p_WindowHeight;
         }
 
         /// <summary>
@@ -46,29 +46,29 @@ namespace _2048Demo
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            _c_SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            TextureList = new List<Texture2D>();
+            _l_TextureList = new List<Texture2D>();
 
             for (int ii = 0; ii < 2; ii++)
             {
                 Texture2D temp = Content.Load<Texture2D>(string.Format("bg{0}", ii + 1));
-                TextureList.Add(temp);
+                _l_TextureList.Add(temp);
                 temp = Content.Load<Texture2D>(string.Format("block_{0}", ii+1));
-                TextureList.Add(temp);
+                _l_TextureList.Add(temp);
             }
 
             int baseValue = 0;
             while (true)
             {
                 Texture2D temp = Content.Load<Texture2D>(string.Format("block_{0}", baseValue));
-                TextureList.Add(temp);
+                _l_TextureList.Add(temp);
                 if (baseValue == 0) baseValue = 3;
                 else baseValue *= 2;
                 
                 if (baseValue > 3072) break;
             }
-            myboard = new Board(TextureList, 4);
+            _c_MyBoard = new Board(_l_TextureList, 4);
 
             // TODO: use this.Content to load your game content here
         }
@@ -93,53 +93,28 @@ namespace _2048Demo
                 Exit();
 
             // TODO: Add your update logic here
-            float elapsedTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            myboard.Update(elapsedTime);
 
-            //if (gameOver == false)
-            //{
-            //    totalTime += elapsedTime;
-            //    aliveTime += elapsedTime;
-            //    if (totalTime > totalLaunchpad * 5)
-            //    {
-            //        Launchpad temp = new Launchpad(texture_blank, circle_center, circle_radius, 10, prepareShow, rand.Next());
-            //        temp.showHandler += prepareShow;
-            //        ObjectCollect.Add(temp);
-            //        totalLaunchpad++;
-            //    }
-            //    for (int ii = 0; ii < ObjectCollect.Count; ii++)
-            //    {
-            //        ObjectCollect[ii].Update(elapsedTime);
-            //    }
-            //    if (player.OnCheck() == true)
-            //    {
-            //        gameOver = true;
-            //    }
-            //}
+            float elapsedTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            _c_MyBoard.f_Update(elapsedTime);
 
             KeyboardState keyboard = Keyboard.GetState();
             if (keyboard.IsKeyDown(Keys.A) || keyboard.IsKeyDown(Keys.Left))
             {
-                myboard.Move(KeyArrow.LEFT);
+                _c_MyBoard.f_Move(KeyArrow.LEFT);
             }
             else if (keyboard.IsKeyDown(Keys.D) || keyboard.IsKeyDown(Keys.Right))
             {
-                myboard.Move(KeyArrow.RIGHT);
+                _c_MyBoard.f_Move(KeyArrow.RIGHT);
             }
             if (keyboard.IsKeyDown(Keys.W) || keyboard.IsKeyDown(Keys.Up))
             {
-                myboard.Move(KeyArrow.UP);
+                _c_MyBoard.f_Move(KeyArrow.UP);
             }
             else if (keyboard.IsKeyDown(Keys.S) || keyboard.IsKeyDown(Keys.Down))
             {
-                myboard.Move(KeyArrow.DOWN);
+                _c_MyBoard.f_Move(KeyArrow.DOWN);
             }
-
-            //if (keyboard.IsKeyDown(Keys.R) && gameOver)
-            //{
-            //    gameOver = false;
-            //    StartGame();
-            //}
 
             base.Update(gameTime);
         }
@@ -153,10 +128,10 @@ namespace _2048Demo
             GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
-            myboard.Show(spriteBatch);
+            _c_SpriteBatch.Begin();
+            _c_MyBoard.f_Show(_c_SpriteBatch);
 
-            spriteBatch.End();
+            _c_SpriteBatch.End();
 
             base.Draw(gameTime);
         }
